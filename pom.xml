@@ -7,6 +7,21 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>clojureshell-maven-plugin Maven Mojo</name>
 	<url>http://maven.apache.org</url>
+	<developers>
+		<developer>
+			<id>fredrik.appelberg</id>
+			<name>Fredrik Appelberg</name>
+			<email>fredrik.appelberg(at)gmail(dot)com</email>
+			<url>http://mulli.nu/</url>
+		</developer>
+	</developers>
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>mulli.nu</id>
+			<url>scp://mulli.nu:/var/www/maven2</url>
+		</repository>
+	</distributionManagement>
 	<build>
 		<resources>
 			<resource>
