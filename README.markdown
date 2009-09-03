@@ -12,8 +12,8 @@ process.
 *Note:* clojureshell is just that; a simple plugin for running
 clojure. If you need something more more sophisticated for compiling
 and packaging clojure code I suggest you take a look at the
-[clojure-maven-plugin]https://github.com/fred-o/clojure-maven-plugin/tree
-project-
+[clojure-maven-plugin](https://github.com/fred-o/clojure-maven-plugin/tree)
+project.
 
 ## Usage
 
@@ -29,7 +29,7 @@ want to use `rlwrap` or `jline` to enhance your hacking experience.
 ### Swank
 
 Thanks to the wonderful [swank-clojure
-project]https://github.com/jochu/swank-clojure/tree, you have another
+project](https://github.com/jochu/swank-clojure/tree), you have another
 option if you want to run clojure with emacs (and who
 doesn't?). Typing
 
