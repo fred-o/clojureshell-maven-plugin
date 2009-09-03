@@ -21,7 +21,7 @@ would in the pom.xml file. Add the following lines:
 This tells maven where to look for the clojureshell plugin. Now, to
 start a REPL for the current project, all you have to do is type:
 
-   mvn nu.mulli:clojureshell-maven-plugin:repl
+      mvn nu.mulli:clojureshell-maven-plugin:repl
 
 And presto! Instant REPL! What's that? Too much typing? Well, add the
 following to your maven settings.xml file:
@@ -32,7 +32,7 @@ following to your maven settings.xml file:
 
 You'll now only have to type
 
-   mvn clojureshell:repl
+       mvn clojureshell:repl
 
 which is much shorter and should be easier to remember.
 
