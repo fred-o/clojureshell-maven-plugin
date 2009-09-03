@@ -1,4 +1,4 @@
-package clojure;
+package nu.mulli.clojureshell;
 
 import clojure.lang.Repl;
 

@@ -1,4 +1,4 @@
-package clojure;
+package nu.mulli.clojureshell;
 
 import java.io.File;
 import java.net.MalformedURLException;
