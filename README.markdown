@@ -79,7 +79,8 @@ This will give you access to clojureshell in /any/ maven project.
 
 ## Project-specific installation
 	
-To enable clojureshell for use in a single project, add the following lines to that project's pom.xml:
+To enable clojureshell for use in a single project, add the following
+lines to that project's pom.xml:
 
 	<repositories>
 		...
@@ -100,3 +101,7 @@ also want to add the following to you settings.xml file:
 		<pluginGroup>nu.mulli</pluginGroup>
 		...
 	</pluginGroups>
+
+## License
+
+Clojureshell is licensed under the GNU Public License v3.
