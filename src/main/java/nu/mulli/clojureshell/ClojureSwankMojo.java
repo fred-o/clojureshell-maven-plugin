@@ -16,14 +16,21 @@ public class ClojureSwankMojo extends AbstractClassloaderMojo {
 	 * @parameter expression="${clojure.swank.port}" default-value="4005"
 	 */
 	protected int port;
+
 	/**
 	 * @parameter expression="${clojure.swank.protocolVersion}"
 	 *            default-value="2008-09-28"
 	 */
 	protected String protocolVersion;
 
+	/**
+	 * @parameter expression="${clojure.swank.file}" default-value="/tmp/swank"
+	 *             
+	 */
+	protected File file;
+
 	@Override
 	protected void doExecute() throws Exception {
-		Repl.main(new String[] { "@loader.clj", "--", "/tmp/swank", Integer.toString(port), protocolVersion });
+		Repl.main(new String[] { "@loader.clj", "--", file, Integer.toString(port), protocolVersion });
 	}
 }
