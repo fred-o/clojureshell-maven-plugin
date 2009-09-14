@@ -39,6 +39,52 @@ starts a swank server for the current project, and you can connect to
 it from emacs with `M-x slime-connect` as usual. The default port is
 4005, but can be changed with the `-Dclojure.swank.port` option.
 
+### Options and configuration
+
+Clojureshell currently supports the following options that can be
+configured as system properties:
+
+<table>
+	<tr>
+		<th>Property</th>
+		<th>Default value</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>cp</td>
+		<td></td>
+		<td>
+			Additional resources that should be added to the classpath. Follows the 
+			regular java classpath syntax, but doesn't understand the <code>dir/*</code> 
+			idiom.
+		</td>
+	</tr>
+	<tr>
+		<td>clojure.scope</td>
+		<td>runtime</td>
+		<td>
+			The maven scope that whose dependencies should be added to the 
+			classpath. Possible values: <code>runtime</code> and <code>test</code>.
+		</td>
+	</tr>
+	<tr>
+		<td>clojure.swank.port</td>
+		<td>4005</td>
+		<td>
+			Only applicable for the <code>clojureshell:swank</code> target.
+			The port number that the Swank server should listen to.
+		</td>
+	</tr>
+	<tr>
+		<td>clojure.swank.file</td>
+		<td>${TEMPDIR}/swank</td>
+		<td>
+			Only applicable for the <code>clojureshell:swank</code> target.
+			Determines which file Swank should use for dumping connection info.			
+		</td>
+	</tr>
+</table>
+
 ## Global installation
 
 The easiest way to get started using clojureshell is to open up (or create)
@@ -101,6 +147,16 @@ also want to add the following to you settings.xml file:
 		<pluginGroup>nu.mulli</pluginGroup>
 		...
 	</pluginGroups>
+
+## Building instructions
+
+To compile and install the plugin in your local repository:
+
+ 1. git clone  git://github.com/fred-o/clojureshell-maven-plugin.git
+ 2. cd clojureshell-maven-plugin
+ 3. git submodule init
+ 4. git submodule update
+ 5. mvn install
 
 ## License
 
