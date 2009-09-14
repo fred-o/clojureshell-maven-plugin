@@ -15,12 +15,19 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 
 public abstract class AbstractClassloaderMojo extends AbstractMojo {
+	enum Scope { RUNTIME, TEST };
+
 	/**
 	 * @parameter expression="${project}"
 	 * @required
 	 * @readonly
 	 */
 	protected MavenProject project;
+
+	/**
+	 * @parameter expression="${clojure.scope}" default-value="runtime"
+	 */
+	protected String scope;
 
 	/**
 	 * @parameter expression="${cp}"
@@ -42,12 +49,17 @@ public abstract class AbstractClassloaderMojo extends AbstractMojo {
 	}
 
 	private ClassLoader getClassLoader(ClassLoader parent) throws DependencyResolutionRequiredException {
+		Scope sc = Scope.valueOf(scope.toUpperCase());
+
 		List<URL> urls = new ArrayList<URL>();
 		getLog().debug("Creating class loader...");
 		try {
-			addClasspathElements(project.getRuntimeClasspathElements(), urls);
 			if(classpath != null) {
 				addClasspathElements(Arrays.asList(classpath.split(File.pathSeparator)), urls);
+			}
+			addClasspathElements(project.getRuntimeClasspathElements(), urls);
+			if(sc == Scope.TEST) {
+				addClasspathElements(project.getTestClasspathElements(), urls);
 			}
 		} catch (MalformedURLException e) {
 			getLog().error(e);
