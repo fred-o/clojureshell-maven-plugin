@@ -23,7 +23,7 @@ a maven project and execute the the follow command:
   	mvn clojureshell:repl
 
 This starts an interactive clojure shell (the current clojure version
-is 1.0.1-alpha). Functionality is pretty bare right now; you might
+is 1.0.0). Functionality is pretty bare right now; you might
 want to use `rlwrap` or `jline` to enhance your hacking experience. 
 
 ### Swank
@@ -86,7 +86,7 @@ configured as system properties:
 	</tr>
 	<tr>
 		<td>clojure.swank.file</td>
-		<td>${TEMPDIR}/swank</td>
+		<td>$TEMP/swank</td>
 		<td>
 			Only applicable for the <code>clojureshell:swank</code> target.
 			Determines which file Swank should use for dumping connection info.			
@@ -159,7 +159,9 @@ also want to add the following to you settings.xml file:
 
 ## Building instructions
 
-To compile and install the plugin in your local repository:
+You don't need to compile Clojureshell yourself in order to use it,
+but in case anyone's interested, here is the procedure to compile and
+install the plugin in your local repository:
 
  1. git clone  git://github.com/fred-o/clojureshell-maven-plugin.git
  2. cd clojureshell-maven-plugin
