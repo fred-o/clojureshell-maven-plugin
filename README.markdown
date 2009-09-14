@@ -68,6 +68,15 @@ configured as system properties:
 		</td>
 	</tr>
 	<tr>
+		<td>clojure.includeStdDirs</td>
+		<td>true</td>
+		<td>
+			If true, the standard directories <code>src/main/clojure</code> and 
+			<code>src/test/clojure</code> will be added to the classpath (although the 
+			latter is only applicable only if <code>clojure.scop=test</code>).
+		</td>
+	</tr>
+	<tr>
 		<td>clojure.swank.port</td>
 		<td>4005</td>
 		<td>

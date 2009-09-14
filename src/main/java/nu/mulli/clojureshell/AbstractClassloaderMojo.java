@@ -30,6 +30,11 @@ public abstract class AbstractClassloaderMojo extends AbstractMojo {
 	protected String scope;
 
 	/**
+	 * @parameter expression="${clojure.includeStdDirs}" default-value="true"
+	 */
+	protected boolean includeStdDirs;
+
+	/**
 	 * @parameter expression="${cp}"
 	 */
 	protected String classpath;
@@ -57,14 +62,24 @@ public abstract class AbstractClassloaderMojo extends AbstractMojo {
 			if(classpath != null) {
 				addClasspathElements(Arrays.asList(classpath.split(File.pathSeparator)), urls);
 			}
+			if (includeStdDirs) {
+				addClasspathElement("src/main/clojure", urls);
+			}
 			addClasspathElements(project.getRuntimeClasspathElements(), urls);
 			if(sc == Scope.TEST) {
+				if (includeStdDirs) {
+					addClasspathElement("src/test/clojure", urls);
+				}
 				addClasspathElements(project.getTestClasspathElements(), urls);
 			}
 		} catch (MalformedURLException e) {
 			getLog().error(e);
 		}
 		return new URLClassLoader(urls.toArray(new URL[urls.size()]), parent);
+	}
+
+	private void addClasspathElement(String path, List<URL> urls) throws MalformedURLException {
+		addClasspathElements(Arrays.asList(path), urls);
 	}
 
 	private void addClasspathElements(List<String> ce, List<URL> urls) throws MalformedURLException {
