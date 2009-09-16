@@ -28,7 +28,7 @@
 				<directory>src/main/clojure</directory>
 			</resource>
 			<resource>
-				<directory>src/main/swank-clojure</directory>
+				<directory>src/main/swank-clojure/src</directory>
 			</resource>
 		</resources>        
 		<plugins>
