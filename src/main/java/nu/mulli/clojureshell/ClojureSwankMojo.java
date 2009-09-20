@@ -1,6 +1,6 @@
 package nu.mulli.clojureshell;
 
-import clojure.lang.Repl;
+import clojure.main;
 import java.io.*;
 
 /**
@@ -20,7 +20,7 @@ public class ClojureSwankMojo extends AbstractClassloaderMojo {
 
 	/**
 	 * @parameter expression="${clojure.swank.protocolVersion}"
-	 *            default-value="2008-09-28"
+	 *            default-value="2009-09-14"
 	 */
 	protected String protocolVersion;
 
@@ -35,6 +35,7 @@ public class ClojureSwankMojo extends AbstractClassloaderMojo {
 		if (file == null) {
 		    file = new File(new File(System.getProperty("java.io.tmpdir")), "swank");
 		}
-		Repl.main(new String[] { "@loader.clj", "--", file.getAbsolutePath(), Integer.toString(port), protocolVersion });
+		main.main(new String[] { "-i", "@loader.clj", "-r", file.getAbsolutePath(), 
+								 Integer.toString(port), protocolVersion });
 	}
 }
