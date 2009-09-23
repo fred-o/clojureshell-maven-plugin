@@ -6,7 +6,14 @@
 	<packaging>maven-plugin</packaging>
 	<version>1.0.0-0-SNAPSHOT</version>
 	<name>clojureshell-maven-plugin Maven Mojo</name>
+	<description>
+		Maven plugin that runs a clojure REPL or starts a swank server
+		in the context of the current maven project.
+	</description>
 	<url>http://maven.apache.org</url>
+	<scm>
+		<url>http://github.com/fred-o/clojureshell-maven-plugin</url>
+	</scm>
 	<developers>
 		<developer>
 			<id>fredrik.appelberg</id>
@@ -18,9 +25,14 @@
 	<distributionManagement>
 		<repository>
 			<uniqueVersion>false</uniqueVersion>
-			<id>mulli.nu</id>
-			<url>scp://mulli.nu:/var/www/maven</url>
+			<id>mulli.nu-releases</id>
+			<url>scp://mulli.nu:/var/www/maven-releases</url>
 		</repository>
+		<snapshotRepository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>mulli.nu-snapshots</id>
+			<url>scp://mulli.nu:/var/www/maven</url>
+		</snapshotRepository>
 	</distributionManagement>
 	<build>
 		<resources>
