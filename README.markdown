@@ -114,7 +114,7 @@ your maven settings.xml file and add the following sections:
 				<pluginRepositories>
 					<pluginRepository>
 						<id>mulli.nu</id>
-						<url>http://mulli.nu/maven</url>
+						<url>http://mulli.nu/maven/releases</url>
 						<layout>default</layout>
 					</pluginRepository>
 				</pluginRepositories>
@@ -142,7 +142,7 @@ lines to that project's pom.xml:
 		<repository>
 			<id>mulli.nu</id>
 			<name>mulli.nu Maven Repository</name>
-			<url>http://mulli.nu/maven</url>
+			<url>http://mulli.nu/maven/releases</url>
 		</repository>
 		...
 	</repositories>
